@@ -8,24 +8,29 @@ public class Main {
         System.out.print("Введите b : " );
         double b = scanner.nextDouble();
         scanner.close();
-        isSolution(a, b);
+        String solution = isSolution(a, b);
+        System.out.println(solution);
     }
 
     public static String isSolution(double a, double b) {
         double left  = Math.min(0, -b);
         double right = Math.max(0, -b);
         if (a > 0) {
-            String solution = "x in (" + (left) + ',' + (right) + ')';
-            System.out.println(solution);
+            if (b != 0){
+                String solution = "x in (" + (left) + ',' + (right) + ')';
+                return solution;
+            }
+            else {
+                return "x not exists";
+            }
         }
         else if (a == 0) {
             String solution = "x not exists";
-            System.out.println(solution);
+            return solution;
         }
         else {
             String solution = "x in (-inf," + (left) + ')' + "or in (" + (right) + ",+inf)";
-            System.out.println(solution);
+            return solution;
         }
-        return "abc";
     }
 }
