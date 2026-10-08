@@ -202,25 +202,33 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
+        // Объявляем объект класса Scanner для ввода данных
         Scanner scanner = new Scanner(System.in);
+        // Считывание двух вещественных чисел x и y из консоли
         System.out.print("Введите a : " );
         double a = scanner.nextDouble();
         System.out.print("Введите b : " );
         double b = scanner.nextDouble();
         scanner.close();
+        // Вызываем функцию для проверки ответа
         String solution = isSolution(a, b);
         System.out.println(solution);
     }
 
     public static String isSolution(double a, double b) {
+        // Находим левые и правые границы для множеств
         double left  = Math.min(0, -b);
         double right = Math.max(0, -b);
+        //Проверка числителя
         if (a > 0) {
+            //Проверка знаменателя на отличность от нуля
             if (b != 0){
+                // Выбор интервала который будет решением
                 String solution = "x in (" + (left) + ',' + (right) + ')';
                 return solution;
             }
             else {
+                // Вывод отсутствия решений
                 return "x not exists";
             }
         }
